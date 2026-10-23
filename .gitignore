@@ -1,0 +1,10 @@
+# 渲染产物与临时文件，不入库
+out/
+frames*/
+node_modules/
+video/node_modules/
+*.log
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
