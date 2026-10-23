@@ -8,3 +8,7 @@ video/node_modules/
 Thumbs.db
 __pycache__/
 *.pyc
+
+# demo 工程：字体不自带（需用户自备可商用字体），渲染产物不入库
+demo/fonts/
+demo/out/

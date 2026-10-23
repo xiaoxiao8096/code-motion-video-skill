@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "title": "code-motion-video 自我介绍片",
+    "version": "v1",
+    "theme": "画面和配乐，都写在代码里",
+    "note": "画面与音频共用的唯一时间轴。时间以秒记录，帧区间按 30fps(预览) 与 60fps(正式) 各给一套。所有剪切点落在小节线。"
+  },
+  "tempo": {
+    "bpm": 120,
+    "beats_per_bar": 4,
+    "bars": 8,
+    "beat_sec": 0.5,
+    "bar_sec": 2.0,
+    "duration_sec": 16.0
+  },
+  "formats": {
+    "preview": { "width": 960, "height": 540, "fps": 30, "total_frames": 480 },
+    "final": { "width": 1920, "height": 1080, "fps": 60, "total_frames": 960 }
+  },
+  "palette": {
+    "bg_from": "#0B0E14",
+    "bg_to": "#141A24",
+    "text_primary": "#F2F4F8",
+    "text_secondary": "#8A94A6",
+    "accent": "#E8B44A",
+    "accent2": "#4AD2E8"
+  },
+  "fonts": {
+    "regular": "fonts/NotoSansSC-Regular.otf",
+    "bold": "fonts/NotoSansSC-Bold.otf",
+    "license": "SIL OFL"
+  },
+  "scenes": [
+    {
+      "id": "S1",
+      "bars": [1, 2],
+      "start_sec": 0.0,
+      "end_sec": 4.0,
+      "frames": { "preview": [0, 120], "final": [0, 240] },
+      "heading": "CODE MOTION VIDEO",
+      "sub": "纯代码 · 画面与配乐都写在代码里",
+      "visual": "bg_grid_plus_staggered_title",
+      "audio": { "pad": true, "kick": true, "hat": true, "arp": false }
+    },
+    {
+      "id": "S2",
+      "bars": [3, 4],
+      "start_sec": 4.0,
+      "end_sec": 8.0,
+      "frames": { "preview": [120, 240], "final": [240, 480] },
+      "heading": "配乐 = 代码合成",
+      "sub": "失谐锯齿波 · FM 钟琴 · 滤波噪声 · 侧链压缩",
+      "visual": "real_audio_waveform",
+      "audio": { "pad": true, "kick": true, "hat": true, "arp": true }
+    },
+    {
+      "id": "S3",
+      "bars": [5, 6],
+      "start_sec": 8.0,
+      "end_sec": 12.0,
+      "frames": { "preview": [240, 360], "final": [480, 720] },
+      "heading": "画面 = 帧驱动",
+      "sub": "每一帧都由代码算出，参数一改即可复现",
+      "visual": "dot_grid_pulse",
+      "audio": { "pad": true, "kick": true, "hat": true, "arp": true, "riser": true }
+    },
+    {
+      "id": "S4",
+      "bars": [7, 8],
+      "start_sec": 12.0,
+      "end_sec": 16.0,
+      "frames": { "preview": [360, 480], "final": [720, 960] },
+      "heading": "零版权风险",
+      "sub": "BGM 与音效全部代码合成 · 不含任何素材",
+      "visual": "rings_and_endcard",
+      "audio": { "pad": true, "kick": true, "hat": true, "arp": true, "sting": true }
+    }
+  ],
+  "transitions": [
+    {
+      "from": "S1",
+      "to": "S2",
+      "at_sec": 4.0,
+      "frames": { "preview": 120, "final": 240 },
+      "technique": "color_wipe",
+      "easing": "easeInOutCubic",
+      "duration_frames_30": 8,
+      "sfx": "riser",
+      "sfx_lead_sec": 0.4
+    },
+    {
+      "from": "S2",
+      "to": "S3",
+      "at_sec": 8.0,
+      "frames": { "preview": 240, "final": 480 },
+      "technique": "mask_split",
+      "easing": "easeInOutQuart",
+      "duration_frames_30": 8,
+      "sfx": "impact",
+      "sfx_lead_sec": 0.0
+    },
+    {
+      "from": "S3",
+      "to": "S4",
+      "at_sec": 12.0,
+      "frames": { "preview": 360, "final": 720 },
+      "technique": "shared_element_zoom",
+      "easing": "easeInOutCubic",
+      "duration_frames_30": 10,
+      "sfx": "riser_impact",
+      "sfx_lead_sec": 0.5
+    }
+  ],
+  "chords": [
+    { "bar": 1, "name": "C", "notes": ["C3", "E3", "G3"] },
+    { "bar": 2, "name": "Am", "notes": ["A2", "C3", "E3"] },
+    { "bar": 3, "name": "F", "notes": ["F2", "A2", "C3"] },
+    { "bar": 4, "name": "G", "notes": ["G2", "B2", "D3"] },
+    { "bar": 5, "name": "C", "notes": ["C3", "E3", "G3"] },
+    { "bar": 6, "name": "Am", "notes": ["A2", "C3", "E3"] },
+    { "bar": 7, "name": "F", "notes": ["F2", "A2", "C3"] },
+    { "bar": 8, "name": "G", "notes": ["G2", "B2", "D3"] }
+  ],
+  "arp_notes": ["C5", "E5", "G5", "E5", "A4", "C5", "E5", "C5", "F4", "A4", "C5", "A4", "G4", "B4", "D5", "B4"]
+}

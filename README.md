@@ -44,16 +44,42 @@
 
 ## 效果预览
 
-`docs/` 下放用本流程渲染出来的示例，方便你判断效果：
+![preview](docs/preview.gif)
 
-```
-docs/preview-horizontal.gif     ← 横版 1920x1080 产品介绍片段（3~5 秒循环）
-docs/preview-vertical.gif       ← 竖版 1080x1920 短视频片段
-docs/preview-audio.mp4          ← 纯色画面 + 完整原创配乐，证明音频是代码合成的
-docs/style-frames.jpg           ← 4 套视觉方向对比图（对应流程第 4 步）
+上面这支 **16 秒片完全由本流程产出**，源工程就在 `demo/` 里，可复现、可改参数重渲染。
+
+| 文件 | 内容 |
+|---|---|
+| `docs/preview.mp4` | 正式版 1920×1080 / 60fps / H.264+AAC，响度 **-14.9 LUFS**、真峰值 **-1.5 dBTP** |
+| `docs/preview.gif` | 480px 动图（README 用） |
+| `docs/contact-sheet.jpg` | 抽帧接触表，自检用 |
+| `docs/style-dark-tech.png` | 风格帧（对应流程第 4 步） |
+
+**最值得看的是第 2 段（4–8 秒）**：画面里的波形由**真实音频采样**驱动，而那支配乐全部由 `scripts/compose.py` 的合成器当场合出——没有采样、没有素材库、没有 AI 生成。这是本流程和「AI 一键出片」最本质的区别。
+
+### 复现它
+
+```bash
+cd demo
+# demo/fonts/ 需自行放入可商用中文字体（如 Noto Sans SC，SIL OFL）
+python audio/compose_demo.py                      # 合成 16s 原创配乐 → out/demo_mix.wav
+python video/render_frames.py --format preview    # 960x540@30 预览帧
+python video/render_frames.py --format final      # 1920x1080@60 正式帧
+
+ffmpeg -framerate 60 -i out/frames_final/f%05d.png -i out/demo_mix.wav \
+       -c:v libx264 -crf 17 -pix_fmt yuv420p -c:a aac -b:a 256k \
+       -movflags +faststart -shortest out/final.mp4
+
+# 响度统一到 -14 LUFS（先测再压）
+ffmpeg -i out/final.mp4 -af loudnorm=print_format=json -f null -
+ffmpeg -i out/final.mp4 -af "volume=8.6dB,alimiter=limit=0.80:attack=4:release=60:level=disabled" \
+       -c:v copy -c:a aac -b:a 256k out/final_loud.mp4
+
+# 自检
+../scripts/verify.sh out/final_loud.mp4 12
 ```
 
-**`preview-audio.mp4` 是最有说服力的一个** —— 关掉画面只听声音，一听就知道不是素材库里的东西。
+工程里的 `demo/plan_v1.md` 是这次的完整方案（分镜表 / 转场表 / 视觉系统 / 配乐结构），可以直接当作流程第 3 步的范例。
 
 ---
 
