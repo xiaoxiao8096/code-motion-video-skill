@@ -1,6 +1,14 @@
 ---
 name: code-motion-video
-description: 纯代码制作动画短片，全程不用 AI 视频/音乐生成模型。画面用 Remotion（React）帧驱动渲染，配乐与音效用 Python 自写合成器生成（失谐锯齿波铺底、FM 钟琴、Karplus-Strong 拨弦、滤波噪声做镲/拍手、侧链压缩、混响，写 WAV 后统一到 -14 LUFS），FFmpeg 合成 H.264+AAC 成片。用于产品介绍、片头、宣传片、发布会开场、自我介绍等动画短片；也用于需要零版权风险的原创 BGM/音效、程序化转场动画、或用代码而非生成模型出片的场景。当用户提到纯代码做视频、自制配乐、无版权 BGM、Remotion 动画、程序化视频、不用 AI 生成视频时使用。
+display_name: "纯代码动画视频制作"
+display_name_en: "Pure-Code Motion Video"
+description: "用代码制作动画短片（产品介绍、片头、宣传片、发布会开场、自我介绍等）时使用。画面用 Remotion 等框架帧驱动渲染，配乐与音效用 Python 合成器现场生成，不调用任何 AI 视频或音乐生成模型。当用户提到纯代码做视频、自制 BGM、无版权配乐、代码合成音效、Remotion 动画、程序化视频、不用 AI 生成视频时使用。"
+description_zh: "纯代码做动画短片：画面帧驱动渲染，配乐与音效用 Python 合成器当场生成，零版权风险。自带合成器脚本、自检脚本和一支可复现的 16 秒成片示例。"
+description_en: "Produce motion videos entirely with code, with no AI video or music models. Frames are rendered deterministically, while the soundtrack and sound effects are synthesized on the fly in Python, so the result is reproducible and carries zero copyright risk. Ships with a synthesizer script, a self-check script, and a reproducible 16-second demo."
+version: 1.0.0
+author: "xiaoxiao8096"
+examples_zh: ["帮我用代码做一支 30 秒的产品介绍短片，配乐也要代码生成，不要用素材库", "把这段文案做成 16:9 动画短片，动效和转场要能改，配乐原创", "帮我渲染一支 16 秒的发布会开场片，响度按平台标准统一"]
+examples_en: ["Make a 30-second product intro with code, including an original soundtrack generated in code", "Turn this copy into a 16:9 motion video with editable transitions and a code-generated BGM", "Render a 16-second event opener and normalize the loudness to platform specs"]
 agent_created: true
 ---
 # 纯代码动画视频制作规范
