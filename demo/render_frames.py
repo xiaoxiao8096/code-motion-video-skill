@@ -336,7 +336,7 @@ def scene_s4(d, W, H, F: Fonts, pal, t_local: float, beat_phase: float, s: float
     if a_e > 0:
         f_e = F.get("bold", 42)
         f_e2 = F.get("regular", 24)
-        draw_center_text(d, cx, H * 0.845, "code-motion-studio", f_e,
+        draw_center_text(d, cx, H * 0.845, "Pure-Code Motion Studio", f_e,
                          hex_rgb(pal["accent"]), a_e)
         draw_center_text(d, cx, H * 0.845 + 54 * s, "画面和配乐，都写在代码里", f_e2,
                          (*hex_rgb(pal["text_secondary"]),), a_e * 0.9)

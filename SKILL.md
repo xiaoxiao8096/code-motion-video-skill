@@ -1,5 +1,5 @@
 ---
-name: code-motion-studio
+name: code-motion-synth
 display_name: "纯代码动画视频制作"
 display_name_en: "Pure-Code Motion Studio"
 description: "用代码制作动画短片（产品介绍、片头、宣传片、发布会开场、自我介绍等）时使用。画面用 Remotion 等框架帧驱动渲染，配乐与音效用 Python 合成器现场生成，不调用任何 AI 视频或音乐生成模型。当用户提到纯代码做视频、自制 BGM、无版权配乐、代码合成音效、Remotion 动画、程序化视频、不用 AI 生成视频时使用。"
