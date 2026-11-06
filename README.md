@@ -1,4 +1,4 @@
-# code-motion-video
+# code-motion-studio
 
 **纯代码动画视频制作规范 —— 画面、动效、转场、配乐、音效、排版全部由代码产出，全程不用 AI 视频或音乐生成模型。**
 
@@ -143,13 +143,13 @@ python scripts/compose.py --out out/demo.wav --bpm 120 --bars 8
 
 ```bash
 # 用户级（所有项目可用）
-cp -r . ~/.workbuddy/skills/code-motion-video
+cp -r . ~/.workbuddy/skills/code-motion-studio
 
 # 或项目级（随仓库共享）
-cp -r . .workbuddy/skills/code-motion-video
+cp -r . .workbuddy/skills/code-motion-studio
 ```
 
-也兼容其他支持 Agent Skills 的助手目录，例如 `.claude/skills/code-motion-video/`。
+也兼容其他支持 Agent Skills 的助手目录，例如 `.claude/skills/code-motion-studio/`。
 
 **2. 当成人看的制作清单**
 

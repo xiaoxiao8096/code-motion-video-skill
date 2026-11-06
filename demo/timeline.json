@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "code-motion-video 自我介绍片",
+    "title": "code-motion-studio 自我介绍片",
     "version": "v1",
     "theme": "画面和配乐，都写在代码里",
     "note": "画面与音频共用的唯一时间轴。时间以秒记录，帧区间按 30fps(预览) 与 60fps(正式) 各给一套。所有剪切点落在小节线。"

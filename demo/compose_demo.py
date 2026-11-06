@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """按 timeline.json 合成 16 秒原创配乐（无任何采样、无 AI 生成）。
 
-直接复用 ../code-motion-video-skill/scripts/compose.py 里的合成函数，
+直接复用 ../scripts/compose.py 里的合成函数，
 证明那套脚本是能跑的。
 
     python audio/compose_demo.py --out out/demo_mix.wav
