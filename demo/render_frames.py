@@ -19,7 +19,17 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 HERE = Path(__file__).resolve().parent
-DEMO = HERE.parent
+
+
+def _find_demo_dir(start: Path) -> Path:
+    """向上找到含 timeline.json 的目录 —— 脚本放在哪一层都能跑。"""
+    for p in [start, *start.parents]:
+        if (p / "timeline.json").exists():
+            return p
+    return start
+
+
+DEMO = _find_demo_dir(HERE)
 
 SS = 2          # 超采样倍数，用于抗锯齿
 
@@ -450,7 +460,7 @@ def main() -> None:
         env = load_env(wav, fps, total)
         print(f"  包络形状 {env.shape}, 最大值 {env.max():.3f}")
     else:
-        print("⚠️ 未找到 out/demo_mix.wav，波形场景将为空。请先跑 audio/compose_demo.py")
+        print("⚠️ 未找到 out/demo_mix.wav，波形场景将为空。请先跑 compose_demo.py")
 
     r = Renderer(tl, fmt, env)
     outdir = DEMO / "out" / f"frames_{fmt}"

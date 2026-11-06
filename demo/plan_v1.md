@@ -64,13 +64,16 @@
 
 ```
 demo/
-  plan_v1.md
-  timeline.json          # 画面与音频共用的时间轴
-  fonts/                 # Noto Sans SC（SIL OFL）
-  audio/compose_demo.py  # 复用 ../code-motion-video-skill/scripts/compose.py
-  video/render_frames.py # 逐帧生成 PNG
-  out/                   # preview.mp4 / final.mp4 / 接触表
+  plan_v1.md            # 本方案
+  timeline.json         # 画面与音频共用的时间轴
+  compose_demo.py       # 复用 ../scripts/compose.py 合成 16s 配乐
+  render_frames.py      # 逐帧生成 PNG
+  fonts/                # Noto Sans SC（SIL OFL）—— 不随包分发，使用者自备
+  out/                  # demo_mix.wav / preview.mp4 / final.mp4 / 接触表
 ```
+
+> 目录层级保持两级以内（`根目录/二级目录/文件`），便于被技能市场解析。
+> `fonts/` 与 `out/` 不入包。
 
 ## 已知风险
 

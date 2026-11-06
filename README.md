@@ -62,9 +62,9 @@
 ```bash
 cd demo
 # demo/fonts/ 需自行放入可商用中文字体（如 Noto Sans SC，SIL OFL）
-python audio/compose_demo.py                      # 合成 16s 原创配乐 → out/demo_mix.wav
-python video/render_frames.py --format preview    # 960x540@30 预览帧
-python video/render_frames.py --format final      # 1920x1080@60 正式帧
+python compose_demo.py                       # 合成 16s 原创配乐 → out/demo_mix.wav
+python render_frames.py --format preview     # 960x540@30 预览帧
+python render_frames.py --format final       # 1920x1080@60 正式帧
 
 ffmpeg -framerate 60 -i out/frames_final/f%05d.png -i out/demo_mix.wav \
        -c:v libx264 -crf 17 -pix_fmt yuv420p -c:a aac -b:a 256k \

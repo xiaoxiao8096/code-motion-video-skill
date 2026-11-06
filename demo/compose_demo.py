@@ -17,11 +17,30 @@ from pathlib import Path
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
-DEMO = HERE.parent
-ROOT = DEMO.parent
+
+
+def _find_demo_dir(start: Path) -> Path:
+    """向上找到含 timeline.json 的目录 —— 脚本放在哪一层都能跑。"""
+    for p in [start, *start.parents]:
+        if (p / "timeline.json").exists():
+            return p
+    return start
+
+
+def _find_skill_scripts(start: Path) -> Path | None:
+    """向上找到 skill 的 scripts 目录（内含 compose.py）。"""
+    for p in [start, *start.parents]:
+        if (p / "scripts" / "compose.py").exists():
+            return p / "scripts"
+    return None
+
+
+DEMO = _find_demo_dir(HERE)
 
 # 复用 skill 里的合成模块
-sys.path.insert(0, str(ROOT / "code-motion-video-skill" / "scripts"))
+_skill_scripts = _find_skill_scripts(HERE)
+if _skill_scripts is not None:
+    sys.path.insert(0, str(_skill_scripts))
 import compose as cm  # noqa: E402
 
 SR = cm.SR
